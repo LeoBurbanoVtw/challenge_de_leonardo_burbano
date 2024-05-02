@@ -1,0 +1,35 @@
+Log file created
+2024-05-02 10:09:29 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:09:32 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:09:51 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:09:52 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:10:16 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:10:17 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:26:04 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:26:06 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:32:42 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:32:44 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:32:46 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:32:47 - ERROR - Error occurred while executing SQL query on 'DE_BIGQUERY_LB.test0006': 400 Syntax error: Unexpected end of statement at [1:1]; reason: invalidQuery, location: query, message: Syntax error: Unexpected end of statement at [1:1]
+
+Location: US
+Job ID: a22879fe-75f9-475c-88bc-18fc6197b0ea
+
+2024-05-02 10:33:05 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:33:07 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:33:09 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:33:10 - ERROR - Error occurred while executing SQL query on 'DE_BIGQUERY_LB.test0006': 400 Syntax error: Expected ")" but got keyword SELECT at [7:5]; reason: invalidQuery, location: query, message: Syntax error: Expected ")" but got keyword SELECT at [7:5]
+
+Location: US
+Job ID: 6bfd819e-b555-41ec-af43-83b456f7dbeb
+
+2024-05-02 10:38:08 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:38:10 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:38:12 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:38:15 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:42:57 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:42:59 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:43:01 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:43:03 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:43:05 - INFO - BigQuery client successfully initialized.
+2024-05-02 10:43:07 - INFO - BigQuery client successfully initialized.
