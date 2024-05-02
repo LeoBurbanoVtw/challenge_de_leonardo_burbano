@@ -33,3 +33,15 @@ Job ID: 6bfd819e-b555-41ec-af43-83b456f7dbeb
 2024-05-02 10:43:03 - INFO - BigQuery client successfully initialized.
 2024-05-02 10:43:05 - INFO - BigQuery client successfully initialized.
 2024-05-02 10:43:07 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:20:41 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:20:42 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:20:44 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:20:46 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:20:47 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:20:49 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:20:51 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:20:52 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:20:54 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:22:39 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:22:42 - INFO - BigQuery client successfully initialized.
+2024-05-02 11:22:45 - INFO - BigQuery client successfully initialized.
