@@ -37,5 +37,15 @@ q2 = '''
 
 
 q3 = """
-    
+    with a as (
+        SELECT mentioned.username mentioned_username, mentioned.userid mentioned_userid, A.id, A.username
+        FROM  `de-leonardo-burbano.DE_BIGQUERY_LB.test0006` AS A, UNNEST(A.mentionedUsers) as mentioned
+        WHERE mentioned.username is not null
+    )
+    select mentioned_username, count(1)
+    from a
+    where a.mentioned_username != username
+    group by 1
+    order by 2 desc
+    limit 10
 """
