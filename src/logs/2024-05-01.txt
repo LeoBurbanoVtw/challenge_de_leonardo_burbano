@@ -1,0 +1,6 @@
+Log file created
+2024-05-01 21:46:10 - INFO - BigQuery client successfully initialized.
+2024-05-01 21:47:20 - INFO - BigQuery client successfully initialized.
+2024-05-01 21:47:34 - INFO - BigQuery client successfully initialized.
+2024-05-01 21:47:44 - INFO - BigQuery client successfully initialized.
+2024-05-01 21:48:27 - INFO - BigQuery client successfully initialized.
