@@ -5,3 +5,5 @@ src/tmp/*.zip
 src/output/*.json
 src/input/*.json
 logs/
+
+.pytest_cache/
