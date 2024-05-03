@@ -25,7 +25,6 @@ def gdrive_to_cstorage(url: str, zip_file_path: str, input_directory: str, outpu
         FileNotFoundError: If the specified ZIP file or extracted file is not found.
         Exception: For any other unexpected error during the upload process.
     """
-
     try:
         # Validate input paths before starting any operations
         if not os.path.exists(zip_file_path):
