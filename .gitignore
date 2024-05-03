@@ -1,3 +1,7 @@
 .env
 venv_dev/
 *.json
+src/tmp/*.zip
+src/output/*.json
+src/input/*.json
+logs/*.txt
