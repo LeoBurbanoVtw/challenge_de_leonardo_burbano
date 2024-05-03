@@ -1,71 +1,84 @@
-from typing import List, Tuple
-from datetime import datetime, date
-from db.bigquery import BigQueryClient
-from db.cloudstorage import CloudStorageClient
+# Import statements with comments
+import os
+from google.cloud import storage  # Import the Google Cloud Storage client library
+from google.cloud.exceptions import NotFound  # Import NotFound exception from Google Cloud library
+from dotenv import load_dotenv  # Import load_dotenv function
+from utils.logging import get_logger  # Import custom logging function
 
-# Initialize BigQuery and Cloud Storage clients
-bigquery_client = BigQueryClient()
-storage_client = CloudStorageClient()
 
-def cloud_storage_to_bigquery(file_path: str, bucket_name: str, bq_dataset_id: str, bq_table_id: str) -> bool:
+# Load environment variables from a .env file if present
+load_dotenv()
+
+class CloudStorageClient:
     """
-    Load data from Cloud Storage into BigQuery.
-
-    Args:
-        file_path (str): The path of the file in Cloud Storage.
-        bucket_name (str): The name of the Cloud Storage bucket.
-        bq_dataset_id (str): The ID of the BigQuery dataset.
-        bq_table_id (str): The ID of the BigQuery table to create and load data into.
-
-    Returns:
-        bool: True if the data was successfully loaded into BigQuery, False otherwise.
-
-    Raises:
-        Exception: Raised if there are any errors during the data loading process.
+    A class for interacting with Google Cloud Storage (GCS) to retrieve file URIs and upload files.
     """
-    try:
-        # Get the file URI from Cloud Storage
-        file_uri = storage_client.get_file_uri(bucket_name, file_path)
-        
-        if file_uri:
-            # Create the BigQuery table
-            table_ref = bigquery_client.create_table(bq_dataset_id, bq_table_id)
-            
-            # Load data from the file URI into BigQuery
-            bigquery_client.load_data_from_uri(table_ref, file_uri)
-            return True
-        else:
-            # File URI not found
-            return False
-    
-    except Exception as e:
-        # Error occurred during data loading process
-        raise Exception(f"Error in cloud_storage_to_bigquery: {str(e)}")
 
-def read_from_bigquery(bq_dataset_id: str, bq_table_id: str, bq_sql_query: str) -> List[Tuple[any, any]]:
-    """
-    Read data from a BigQuery table based on a SQL query.
+    def __init__(self):
+        """
+        Initializes the CloudStorageClient with a Google Cloud Storage client and logger.
+        """
+        self.client = storage.Client()  # Initialize Google Cloud Storage client
+        self.logger = get_logger(__name__)  # Initialize logger using custom function
 
-    Args:
-        bq_dataset_id (str): The ID of the BigQuery dataset.
-        bq_table_id (str): The ID of the BigQuery table.
-        bq_sql_query (str): The SQL query to execute.
+    def get_file_uri(self, bucket_name, file_name):
+        """
+        Retrieves the Cloud Storage URI for a given file in a specified bucket.
 
-    Returns:
-        List[Tuple[date, str]]: A list of tuples containing date and string values retrieved from BigQuery.
+        Args:
+            bucket_name (str): The name of the Google Cloud Storage bucket.
+            file_name (str): The name of the file within the bucket.
 
-    Raises:
-        Exception: Raised if there are any errors during the data retrieval process.
-    """
-    try:
-        # Read data from BigQuery using the specified SQL query
-        result = bigquery_client.read_table(dataset_id=bq_dataset_id, table_id=bq_table_id, sql_query=bq_sql_query)
+        Returns:
+            str or None: The Cloud Storage URI (gs://bucket_name/file_name) if the file exists,
+                         None if the file is not found or if any errors occur.
+        """
+        try:
+            # Get the bucket object
+            bucket = self.client.get_bucket(bucket_name)
+
+            # Get the blob (file) object within the bucket
+            blob = bucket.blob(file_name)
+
+            # Check if the blob (file) exists in the bucket
+            if blob.exists():
+                file_uri = f"gs://{bucket_name}/{file_name}"
+                return file_uri
+            else:
+                self.logger.warning(f"File {file_name} not found in bucket {bucket_name}.")
+                return None
+        except NotFound:
+            # Handle the case where the bucket does not exist
+            self.logger.error(f"Bucket {bucket_name} not found.")
+            return None
         
-        # Transform the result into a list of tuples (date, str)
-        list_output: List[Tuple[any, any]] = [(row[0], row[1]) for row in result]
-        
-        return list_output
-        
-    except Exception as e:
-        # Error occurred during data retrieval
-        raise Exception(f"Error in read_from_bigquery: {str(e)}")
+    def upload_to_gcs(self, file_path, bucket_name, destination_blob_name):
+        """
+        Uploads a file from a specified path to Google Cloud Storage (GCS) bucket.
+
+        Args:
+            file_path (str): The path to the file to upload.
+            bucket_name (str): The name of the GCS bucket where the file will be uploaded.
+            destination_blob_name (str): The name of the blob (object) in the bucket.
+
+        Returns:
+            str or None: The GCS URI of the uploaded file if successful,
+                        or None if an error occurs during upload.
+        """
+        try:
+            # Read file contents
+            with open(file_path, "rb") as file:
+                file_contents = file.read()
+
+            # Upload the file contents to Google Cloud Storage
+            bucket = self.client.bucket(bucket_name)
+            blob = bucket.blob(destination_blob_name)
+            blob.upload_from_string(file_contents)
+
+            # Return the GCS URI of the uploaded file
+            return f"gs://{bucket_name}/{destination_blob_name}"
+
+        except Exception as e:
+            # Log error that occurs during upload
+            self.logger.error(f"Error uploading to GCS: {e}")
+            return None

@@ -4,4 +4,4 @@ venv_dev/
 src/tmp/*.zip
 src/output/*.json
 src/input/*.json
-logs/*.txt
+logs/
