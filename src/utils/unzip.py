@@ -1,5 +1,5 @@
-import zipfile
-import os
+import zipfile # To upzip files in disk
+import os # To access OS
 
 def unzip_file(zip_path: str, output_dir: str) -> str:
     """
@@ -13,6 +13,7 @@ def unzip_file(zip_path: str, output_dir: str) -> str:
         str or None: Filename of the extracted file if successfully extracted,
                      or None if the input data is not a valid .zip file or contains
                      more than one file.
+
     Raises:
         FileNotFoundError: If the specified zip file does not exist.
         zipfile.BadZipFile: If the data is not a valid zip file.
@@ -58,15 +59,3 @@ def unzip_file(zip_path: str, output_dir: str) -> str:
     except ValueError as e:
         print(e)
         return None
-
-# Example usage:
-# if __name__ == "__main__":
-#     zip_file_path = './src/tmp/downloaded_file.zip'
-#     output_directory = './src/output'
-
-#     # Call the function to extract the single file to disk
-#     extracted_filename = unzip_file(zip_file_path, output_directory)
-
-#     if extracted_filename:
-#         # Display the filename of the extracted file
-#         print("Extracted filename:", extracted_filename)

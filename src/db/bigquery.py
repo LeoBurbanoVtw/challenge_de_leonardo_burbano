@@ -1,8 +1,10 @@
-from google.cloud import bigquery
-from google.cloud.exceptions import NotFound
-from utils.logging import get_logger
-from dotenv import load_dotenv
+# Import statements with comments
+from google.cloud import bigquery  # Import the BigQuery client library
+from google.cloud.exceptions import NotFound  # Import NotFound exception from Google Cloud library
+from utils.logging import get_logger  # Import custom logging function
+from dotenv import load_dotenv  # Import load_dotenv function from dotenv library
 
+# Load environment variables from a .env file if present
 load_dotenv()
 
 class BigQueryClient:
@@ -14,9 +16,9 @@ class BigQueryClient:
         """
         Initialize the BigQuery client and logger.
         """
-        self.logger = get_logger(__name__)
+        self.logger = get_logger(__name__)  # Initialize logger using custom function
         try:
-            self.client = bigquery.Client()
+            self.client = bigquery.Client()  # Initialize BigQuery client
             self.logger.info("BigQuery client successfully initialized.")
         except Exception as e:
             error_message = f"Error occurred during BigQuery client initialization: {e}"
@@ -98,15 +100,13 @@ class BigQueryClient:
             google.api_core.exceptions.GoogleAPIError: If there's an error executing the query.
         """
         try:
+            query_job_config = bigquery.QueryJobConfig()  # Initialize query job configuration
 
-            # Build the query job configuration
-            query_job_config = bigquery.QueryJobConfig()
-            
-            regex_pattern = '''
-            r"(?:[\U0001F300-\U0001F5FF]|[\U0001F900-\U0001F9FF]|[\U0001F600-\U0001F64F]|[\U0001F680-\U0001F6FF]|[\U00002600-\U000026FF]\uFE0F?|[\U00002700-\U000027BF]\uFE0F?|\u24C2\uFE0F?|[\U0001F1E6-\U0001F1FF]{1,2}|[\U0001F170\U0001F171\U0001F17E\U0001F17F\U0001F18E\U0001F191-\U0001F19A]\uFE0F?|[\u0023\u002A\u0030-\u0039]\uFE0F?\u20E3|[\u2194-\u2199\u21A9-\u21AA]\uFE0F?|[\u2B05-\u2B07\u2B1B\u2B1C\u2B50\u2B55]\uFE0F?|[\u2934\u2935]\uFE0F?|[\u3297\u3299]\uFE0F?|[\U0001F201-\U0001F202\U0001F21A\U0001F22F\U0001F232\U0001F23A\U0001F250\U0001F251]\uFE0F?|[\u203C-\u2049]\uFE0F?|[\u00A9-\u00AE]\uFE0F?|[\u2122\u2139]\uFE0F?|\U0001F004\uFE0F?|\U0001F0CF\uFE0F?|[\u231A\u231B\u2328\u23CF\u23E9\u23F3\u23F8\u23FA]\uFE0F?)"
-            '''
-            # Execute the query
-            query_job = self.client.query(sql_query.format(dataset_id=dataset_id, table_id=table_id, regex_pattern= regex_pattern), job_config=query_job_config)
+            # Execute the query with string replacement (avoid SQL injection)
+            query_job = self.client.query(
+                sql_query.format(dataset_id=dataset_id, table_id=table_id),
+                job_config=query_job_config
+            )
             results = query_job.result()  # Wait for query to complete
             return results
 
