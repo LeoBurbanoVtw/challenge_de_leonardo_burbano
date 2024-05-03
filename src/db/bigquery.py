@@ -2,7 +2,6 @@ from google.cloud import bigquery
 from google.cloud.exceptions import NotFound
 from utils.logging import get_logger
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
