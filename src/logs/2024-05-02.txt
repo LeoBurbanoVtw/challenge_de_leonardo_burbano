@@ -278,3 +278,47 @@ Job ID: 31f2fdf3-1d77-417b-8314-5458bb802b5c
 2024-05-02 17:57:24 - INFO - Existing table DE_BIGQUERY_LB.processed_tweets deleted.
 2024-05-02 17:57:24 - INFO - Starting job 6ed99510-c496-4989-9c07-2e2b95591f96
 2024-05-02 17:57:31 - INFO - Job 6ed99510-c496-4989-9c07-2e2b95591f96 completed successfully.
+2024-05-02 21:09:51 - INFO - BigQuery client successfully initialized.
+2024-05-02 21:09:54 - INFO - Existing table DE_BIGQUERY_LB.processed_tweets deleted.
+2024-05-02 21:09:54 - INFO - Starting job ab1df7c1-5296-439f-bd9a-84855292dbb0
+2024-05-02 21:10:03 - INFO - Job ab1df7c1-5296-439f-bd9a-84855292dbb0 completed successfully.
+2024-05-02 22:31:46 - INFO - BigQuery client successfully initialized.
+2024-05-02 22:31:50 - INFO - Table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 does not exist yet.
+2024-05-02 22:31:50 - INFO - Starting job 86412f66-e4e4-49a0-9d07-d4a079573fa2
+2024-05-02 22:31:51 - ERROR - Error occurred while loading data into 'DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4': 400 Error while reading data, error message: Failed to parse JSON: Unknown token type; Unexpected token; Parser terminated before end of string File: farmers-protest-tweets-2021-2-4.json; reason: invalid, location: farmers-protest-tweets-2021-2-4.json, message: Error while reading data, error message: Failed to parse JSON: Unknown token type; Unexpected token; Parser terminated before end of string File: farmers-protest-tweets-2021-2-4.json
+2024-05-02 22:41:47 - INFO - BigQuery client successfully initialized.
+2024-05-02 22:41:53 - INFO - Table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 does not exist yet.
+2024-05-02 22:41:53 - INFO - Starting job 052dd996-cac4-44c2-a4cc-11a898079d1d
+2024-05-02 22:42:01 - ERROR - Error occurred while loading data into 'DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4': 400 Error while reading data, error message: JSON table encountered too many errors, giving up. Rows: 5269; errors: 1. Please look into the errors[] collection for more details. File: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json; reason: invalid, location: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json, message: Error while reading data, error message: JSON table encountered too many errors, giving up. Rows: 5269; errors: 1. Please look into the errors[] collection for more details. File: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json; reason: invalid, message: Error while reading data, error message: JSON processing encountered too many errors, giving up. Rows: 5269; errors: 1; max bad: 0; error percent: 0; reason: invalid, location: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json, message: Error while reading data, error message: JSON parsing error in row starting at position 220805397: No such field: quotedTweet.quotedTweet.quotedTweet.media.thumbnailUrl. File: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json
+2024-05-02 22:59:02 - INFO - BigQuery client successfully initialized.
+2024-05-02 22:59:06 - INFO - Table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 does not exist yet.
+2024-05-02 22:59:07 - INFO - Starting job 37af4135-c694-4e61-8d52-fc308fe170af
+2024-05-02 22:59:16 - ERROR - Error occurred while loading data into 'DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4': 400 Error while reading data, error message: JSON table encountered too many errors, giving up. Rows: 5269; errors: 1. Please look into the errors[] collection for more details. File: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json; reason: invalid, location: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json, message: Error while reading data, error message: JSON table encountered too many errors, giving up. Rows: 5269; errors: 1. Please look into the errors[] collection for more details. File: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json; reason: invalid, message: Error while reading data, error message: JSON processing encountered too many errors, giving up. Rows: 5269; errors: 1; max bad: 0; error percent: 0; reason: invalid, location: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json, message: Error while reading data, error message: JSON parsing error in row starting at position 220805397: No such field: quotedTweet.quotedTweet.quotedTweet.media.thumbnailUrl. File: gs://de_challenge_leonardo_burbano/farmers-protest-tweets-2021-2-4.json
+2024-05-02 23:01:36 - INFO - BigQuery client successfully initialized.
+2024-05-02 23:01:39 - INFO - Table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 does not exist yet.
+2024-05-02 23:01:39 - INFO - Starting job 8b16fba1-2e11-47de-9f2e-266345834b8c
+2024-05-02 23:01:50 - INFO - Job 8b16fba1-2e11-47de-9f2e-266345834b8c completed successfully.
+2024-05-02 23:04:00 - INFO - Existing table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 deleted.
+2024-05-02 23:04:01 - INFO - Starting job 32da5023-0f17-43fc-b711-fd614d2f45f3
+2024-05-02 23:04:06 - INFO - Job 32da5023-0f17-43fc-b711-fd614d2f45f3 completed successfully.
+2024-05-02 23:04:22 - INFO - Existing table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 deleted.
+2024-05-02 23:04:22 - INFO - Starting job cf30df56-aae4-4258-b7a4-9a9eac9a7db0
+2024-05-02 23:04:31 - INFO - Job cf30df56-aae4-4258-b7a4-9a9eac9a7db0 completed successfully.
+2024-05-02 23:04:35 - INFO - Existing table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 deleted.
+2024-05-02 23:04:36 - INFO - Starting job c5a7114d-8f3d-4873-ab30-4918331c6006
+2024-05-02 23:04:41 - INFO - Job c5a7114d-8f3d-4873-ab30-4918331c6006 completed successfully.
+2024-05-02 23:04:45 - INFO - Existing table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 deleted.
+2024-05-02 23:04:45 - INFO - Starting job 2483f23d-52db-4d0c-b126-7728a6910a4a
+2024-05-02 23:04:50 - INFO - Job 2483f23d-52db-4d0c-b126-7728a6910a4a completed successfully.
+2024-05-02 23:04:53 - INFO - Existing table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 deleted.
+2024-05-02 23:04:54 - INFO - Starting job b3e67edd-3ab5-4e47-973f-0d34f4bccc1a
+2024-05-02 23:05:00 - INFO - Job b3e67edd-3ab5-4e47-973f-0d34f4bccc1a completed successfully.
+2024-05-02 23:05:03 - INFO - Existing table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 deleted.
+2024-05-02 23:05:03 - INFO - Starting job 9d84392f-2c32-4801-abb4-8e61b1797ab7
+2024-05-02 23:05:09 - INFO - Job 9d84392f-2c32-4801-abb4-8e61b1797ab7 completed successfully.
+2024-05-02 23:05:12 - INFO - Existing table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 deleted.
+2024-05-02 23:05:13 - INFO - Starting job 56e03040-9718-42a1-88e9-1042c513f887
+2024-05-02 23:05:23 - INFO - Job 56e03040-9718-42a1-88e9-1042c513f887 completed successfully.
+2024-05-02 23:05:26 - INFO - Existing table DE_BIGQUERY_LB.farmers-protest-tweets-2021-2-4 deleted.
+2024-05-02 23:05:26 - INFO - Starting job 30522ce0-e229-4a6f-9683-a55fa3ebd64a
+2024-05-02 23:05:32 - INFO - Job 30522ce0-e229-4a6f-9683-a55fa3ebd64a completed successfully.
