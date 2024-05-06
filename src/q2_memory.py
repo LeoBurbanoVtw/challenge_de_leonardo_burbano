@@ -11,7 +11,7 @@ CS_BUCKET_NAME = os.getenv("CS_BUCKET_NAME")
 BQ_DATASET_ID = os.getenv("BQ_DATASET_ID")
 
 @profile
-def q2_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
+def q2_memory(file_path: str) -> List[Tuple[str, int]]:
     """
     Executes a pipeline to load data from Cloud Storage to BigQuery and perform a query.
 
@@ -19,7 +19,7 @@ def q2_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
         file_path (str): The path of the file in Cloud Storage.
 
     Returns:
-        List[Tuple[datetime.date, str]]: A list of tuples containing date and string values.
+        List[Tuple[str, int]]: A list of tuples containing string and integer values.
 
     Raises:
         Exception: Raised if the data pipeline fails.
