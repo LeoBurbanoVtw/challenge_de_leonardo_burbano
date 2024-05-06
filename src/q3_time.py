@@ -16,7 +16,7 @@ def q3_time(file_path: str) -> List[Tuple[str, int]]:
         file_path (str): The path of the file in Cloud Storage.
 
     Returns:
-        List[Tuple[datetime.date, str]]: A list of tuples containing date and string values.
+        List[Tuple[str, int]]: A list of tuples containing string and integer values.
 
     Raises:
         Exception: Raised if the data pipeline fails.
